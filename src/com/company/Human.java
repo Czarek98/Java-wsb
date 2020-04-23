@@ -17,7 +17,7 @@ public class Human {
 
 
 
-    public Double getSalary(Double salary) {
+    public Double getSalary() {
         Date nowDate = new Date();
         SimpleDateFormat sdf3 = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss");
         System.out.println("Your rise was sent: " + sdf3.format(nowDate));
@@ -27,7 +27,7 @@ public class Human {
         return salary;
     }
 
-    public Double setSalary(Double rise_salary) {
+    public Double setSalary() {
         if (rise_salary<0){
 
             System.out.println("You cant do that ");
