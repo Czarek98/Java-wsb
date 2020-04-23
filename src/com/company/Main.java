@@ -22,7 +22,7 @@ public class Main {
         me.pet = dog;
         me.car = new Car("Alfa Romeo", "147", 2004);
 
-        me.getSalary();
-        me.setSalary();
+        me.getSalary(1500.0);
+        me.setSalary(100.0);
     }
 }
