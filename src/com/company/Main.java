@@ -15,22 +15,10 @@ public class Main {
         me.lastname = "Bohdanowicz";
         me.pet = dog;
 
-        System.out.println("Your " + me.pet.species + " default weight is: " + me.pet.weight);
+        me.car = new Car("Alfa Romeo", "147", 2004);
 
-        me.pet.feed();
+        //System.out.println(me.car.brand);
 
-        me.pet.walk();
-        me.pet.walk();
-        me.pet.walk();
-        me.pet.walk();
-        me.pet.walk();
-        me.pet.walk();
-        me.pet.walk();
-        me.pet.walk();
-        me.pet.walk();
 
-        me.pet.feed();
-
-        //System.out.println(me.pet.name);
     }
 }
