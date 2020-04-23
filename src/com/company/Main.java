@@ -1,8 +1,14 @@
 package com.company;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import static java.lang.System.*;
+
 public class Main {
 
     public static void main(String[] args) {
+
         Animal dog = new Animal("dog");
         dog.name = "Brutus";
 
@@ -14,11 +20,8 @@ public class Main {
         me.firstname = "Czarek";
         me.lastname = "Bohdanowicz";
         me.pet = dog;
-
         me.car = new Car("Alfa Romeo", "147", 2004);
 
-        //System.out.println(me.car.brand);
-
-
+        me.setSalary(200.0);
     }
 }
