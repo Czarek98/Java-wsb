@@ -1,6 +1,8 @@
 package com.company;
 
-import java.sql.SQLOutput;
+import com.company.devices.Car;
+import com.company.devices.Phone;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -10,6 +12,10 @@ public class Human {
     Phone phone;
     Animal pet;
     private Car car;
+
+    public String toString(){
+        return "Human " + this.firstname + " " + this.lastname + ", " + this.pet + ", " + this.car;
+    }
 
     private  Double salary = 1800.0;
     private  Double rise_salary = 200.0;
@@ -38,7 +44,6 @@ public class Human {
 
         }
         else {
-            this.rise_salary =rise_salary;
             System.out.println("Your money was sent to system accountant ");
             System.out.println("You must collect the annex to the contract from Ms. Hania from the staff ");
             System.out.println("ZUS and US already know about the change in payment. It makes no sense to hide your income :) ");
@@ -52,11 +57,11 @@ public class Human {
     }
 
     public void setCar(Car alfa){
-        if (alfa.prize <= this.salary){
+        if (alfa.price <= this.salary){
             System.out.println("Yay, now you don't have to ride with your parents.");
             this.car = alfa;
         }
-        else if (alfa.prize <= (this.salary*12)){
+        else if (alfa.price <= (this.salary*12)){
             System.out.println("Great, you got a car but you don't have money for fuel.");
             this.car = alfa;
         }

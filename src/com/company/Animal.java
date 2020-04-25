@@ -24,6 +24,10 @@ public class Animal {
         }
     }
 
+    public String toString(){
+        return "Pet " + this.name + " " + this.species + " " + this.weight;
+    }
+
     void feed() {
         if (weight!=1 && weight>0) {
 
