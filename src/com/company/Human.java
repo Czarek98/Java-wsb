@@ -1,7 +1,6 @@
 package com.company;
 
-import org.w3c.dom.ls.LSOutput;
-
+import java.sql.SQLOutput;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -10,12 +9,14 @@ public class Human {
     String lastname;
     Phone phone;
     Animal pet;
-    Car car;
+    private Car car;
 
     private  Double salary = 1800.0;
     private  Double rise_salary = 200.0;
 
-
+    public Car getCar() {
+        return car;
+    }
 
     public Double getSalary(Double salary) {
         this.salary =salary;
@@ -48,5 +49,19 @@ public class Human {
 
         }
         return salary;
+    }
+
+    public void setCar(Car alfa){
+        if (alfa.prize <= this.salary){
+            System.out.println("Yay, now you don't have to ride with your parents.");
+            this.car = alfa;
+        }
+        else if (alfa.prize <= (this.salary*12)){
+            System.out.println("Great, you got a car but you don't have money for fuel.");
+            this.car = alfa;
+        }
+        else {
+            System.out.println("Just get a job.");
+        }
     }
 }

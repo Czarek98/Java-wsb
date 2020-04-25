@@ -1,10 +1,5 @@
 package com.company;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import static java.lang.System.*;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -20,9 +15,11 @@ public class Main {
         me.firstname = "Czarek";
         me.lastname = "Bohdanowicz";
         me.pet = dog;
-        me.car = new Car("Alfa Romeo", "147", 2004);
-
+        Car alfa = new Car("Alfa Romeo", "147", 2004, 7000.0);
         me.getSalary(1500.0);
-        me.setSalary(100.0);
+        me.setCar(alfa);
+
+
+
     }
 }
