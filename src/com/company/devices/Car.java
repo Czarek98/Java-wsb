@@ -1,21 +1,18 @@
 package com.company.devices;
 
-public class Car {
-    public final String brand;
-    public final String model;
-    public final Integer yearOfproduction;
-    public final Double price;
+public class Car extends Device {
 
 
     public Car(String brand, String model, Integer yearOfproduction, Double price) {
-        this.brand = brand;
-        this.model = model;
-        this.yearOfproduction = yearOfproduction;
-        this.price = price;
+        super(brand,model,yearOfproduction,price);
+
     }
     public String toString(){
-        return "Car " + this.brand + " " + this.model + " " + this.yearOfproduction + " " + this.price;
+        return "Car " + super.toString();
     }
 
-
+    @Override
+    public void turnON() {
+        System.out.println("Vroom vroom");
+    }
 }
