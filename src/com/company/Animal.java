@@ -2,7 +2,7 @@ package com.company;
 
 import java.io.File;
 
-public class Animal {
+public class Animal implements salleable {
     String name;
     String species;
     Double weight;
@@ -14,41 +14,56 @@ public class Animal {
 
     public Animal(String species) {
         this.species = species;
-        if(species=="dog"){
-            this.weight=DEFAULT_DOG_WEIGHT;
-        }
-        else if(species=="lion"){
-            this.weight=DEFAULT_LION_WEIGHT;
-        }else if(species=="mouse"){
-            this.weight=DEFAULT_MOUSE_WEIGHT;
+        if (species == "dog") {
+            this.weight = DEFAULT_DOG_WEIGHT;
+        } else if (species == "lion") {
+            this.weight = DEFAULT_LION_WEIGHT;
+        } else if (species == "mouse") {
+            this.weight = DEFAULT_MOUSE_WEIGHT;
         }
     }
 
-    public String toString(){
+    public String toString() {
         return "Pet " + this.name + " " + this.species + " " + this.weight;
     }
 
     void feed() {
-        if (weight!=1 && weight>0) {
+        if (weight != 1 && weight > 0) {
 
             weight++;
             System.out.println("thx for food bro, my weight is now " + weight);
-        }
-        else {
+        } else {
             System.out.println("Sorry you cant feed your dead pet.");
         }
     }
 
-    void walk(){
-        if (weight!=1 && weight>0) {
+    void walk() {
+        if (weight != 1 && weight > 0) {
             weight--;
             System.out.println("thx for food bro, my weight is now " + weight);
 
-        }
-        else
-        {
+        } else {
             System.out.println("Sorry you cant walk.");
         }
     }
 
+    @Override
+    public void Sell(Human seller, Human buyer, Double price) throws Exception {
+        if (this instanceof Human) {
+            throw new Exception("Come on man, you cant do this!");
+        } else {
+            if (buyer.getCash() >= price) {
+                if (seller.pet == this) {
+                    buyer.pet = this;
+                    seller.pet = null;
+                    buyer.setCash(buyer.getCash() - price);
+                    seller.setCash(seller.getCash() + price);
+                } else {
+                    throw new Exception("Give it back!");
+                }
+            } else {
+                throw new Exception("Not enough money");
+            }
+        }
+    }
 }

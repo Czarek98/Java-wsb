@@ -1,16 +1,17 @@
 package com.company.devices;
 
-public abstract class Device {
+import com.company.salleable;
+
+public abstract class Device implements salleable {
     public final String brand;
     public final String model;
     public final Integer yearOfproduction;
-    public Double price;
+    public Double price = 1200.0;
 
-    public Device(String brand, String model, Integer yearOfproduction, Double price){
+    public Device(String brand, String model, Integer yearOfproduction) {
         this.brand = brand;
         this.model = model;
         this.yearOfproduction = yearOfproduction;
-        this.price = price;
     }
 
     public String toString() {

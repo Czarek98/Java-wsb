@@ -6,26 +6,40 @@ import com.company.devices.Phone;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Human {
-    String firstname;
-    String lastname;
-    Phone phone;
+public class Human extends Animal {
+    public Phone phone;
+    public String firstname;
+    public String lastname;
     Animal pet;
-    private Car car;
+    public Car car;
+    private Double cash = 200.0;
 
-    public String toString(){
-        return "Human " + this.firstname + " " + this.lastname + ", " + this.pet + ", " + this.car;
+    public Human(String species, String firstname, String lastname) {
+        super("homo sapiens");
     }
 
-    private  Double salary = 1800.0;
-    private  Double rise_salary = 200.0;
+    private Double salary = 1800.0;
+    private Double rise_salary = 200.0;
 
-    public Car getCar() {
-        return car;
+    public String toString() {
+        return this.species + this.firstname + " " + this.lastname + ", " + this.pet + ", " + this.car;
+    }
+
+    public Double getCash() {
+        return cash;
+    }
+
+    public void setCash(Double cash) {
+        if (cash < 0) {
+            System.out.println("Sorry im not an idiot ");
+        } else {
+            this.cash = cash;
+        }
+
     }
 
     public Double getSalary(Double salary) {
-        this.salary =salary;
+        this.salary = salary;
         Date nowDate = new Date();
         SimpleDateFormat sdf3 = new SimpleDateFormat("MM/dd/yyyy hh:mm:ss");
         System.out.println("Your rise was sent: " + sdf3.format(nowDate));
@@ -56,17 +70,11 @@ public class Human {
         return salary;
     }
 
-    public void setCar(Car alfa){
-        if (alfa.price <= this.salary){
-            System.out.println("Yay, now you don't have to ride with your parents.");
-            this.car = alfa;
-        }
-        else if (alfa.price <= (this.salary*12)){
-            System.out.println("Great, you got a car but you don't have money for fuel.");
-            this.car = alfa;
-        }
-        else {
-            System.out.println("Just get a job.");
-        }
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
     }
 }
