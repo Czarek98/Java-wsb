@@ -1,5 +1,9 @@
 package com.company;
 
+import com.company.creatures.Animal;
+import com.company.creatures.FarmAnimal;
+import com.company.creatures.Human;
+import com.company.creatures.Pet;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
@@ -7,12 +11,20 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Animal dog = new Animal("dog");
+        Pet dog = new Pet("dog") {
+
+        };
         dog.name = "Brutus";
 
+        Animal lion = new Animal("lion") {
+            @Override
+            public void feed() {
 
-        Animal lion = new Animal("lion");
+            }
+        };
         lion.name = "leo";
+
+        FarmAnimal cow = new FarmAnimal("cow");
 
         Car alfa = new Car("Alfa Romeo", "147", 2004);
         Human me = new Human("homo sapiens ", "Czarek", "Bohdanowicz");
@@ -25,11 +37,18 @@ public class Main {
         me.phone = new Phone("xiaomi", "jakies", 2020);
 
         System.out.println(dog);
-        System.out.println(me.pet);
+        dog.feed(1.0);
 
-        alfa.turnON();
-        xiaomiNajlebrze.turnON();
+        dog.feed();
+        System.out.println(dog);
 
+
+        cow.feed(20.0);
+        cow.beEaten();
+        cow.feed(20.0);
+
+//REAL SELLING
+/*
         try {
             //me.car.Sell(me, brat, 199.0);
             //me.phone.Sell(me, brat, 5.0);
@@ -48,7 +67,7 @@ public class Main {
         System.out.println("fon brata " + brat.phone);
         System.out.println("moj zwierzak " + me.pet);
         System.out.println("brata zwierzak " + brat.pet);
-
+*/
 
     }
 }
