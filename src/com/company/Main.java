@@ -4,8 +4,9 @@ import com.company.creatures.Animal;
 import com.company.creatures.FarmAnimal;
 import com.company.creatures.Human;
 import com.company.creatures.Pet;
-import com.company.devices.Car;
-import com.company.devices.Phone;
+import com.company.devices.*;
+
+import java.net.MalformedURLException;
 
 public class Main {
 
@@ -26,7 +27,21 @@ public class Main {
 
         FarmAnimal cow = new FarmAnimal("cow");
 
-        Car alfa = new Car("Alfa Romeo", "147", 2004);
+        // Cars
+
+        Car alfa = new Diesel("Alfa Romeo", "147", 2004);
+        Car alfa1 = new Electric("Alfa Romeo", "147", 2004);
+        Car alfa2 = new LPG("Alfa Romeo", "147", 2004);
+
+        System.out.println(alfa.fuel);
+        alfa.refuel();
+        System.out.println();
+        alfa1.refuel();
+        System.out.println();
+        alfa2.refuel();
+        System.out.println();
+
+
         Human me = new Human("homo sapiens ", "Czarek", "Bohdanowicz");
         me.pet = dog;
         me.setCar(alfa);
@@ -35,6 +50,10 @@ public class Main {
 
         Human brat = new Human("homo sapiens", "Moron", "Stupid");
         me.phone = new Phone("xiaomi", "jakies", 2020);
+
+
+        //Farmin
+        /*
 
         System.out.println(dog);
         dog.feed(1.0);
@@ -46,9 +65,12 @@ public class Main {
         cow.feed(20.0);
         cow.beEaten();
         cow.feed(20.0);
+        System.out.println();
 
-//REAL SELLING
-/*
+         */
+
+        //REAL SELLING
+        /*
         try {
             //me.car.Sell(me, brat, 199.0);
             //me.phone.Sell(me, brat, 5.0);
@@ -68,6 +90,24 @@ public class Main {
         System.out.println("moj zwierzak " + me.pet);
         System.out.println("brata zwierzak " + brat.pet);
 */
+
+
+        //APPS
+
+
+        String[] appNames = {"TwarzoKsiazka", "Our Class", "Bimber, not Tinder"};
+
+        try {
+            me.phone.installAnnApp(appNames[0], "1.0");
+            System.out.println();
+            me.phone.installAnnApp("łazap");
+            System.out.println();
+            me.phone.installAnApp(appNames);
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
 
     }
 }

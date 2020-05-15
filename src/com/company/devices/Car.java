@@ -2,11 +2,15 @@ package com.company.devices;
 
 import com.company.creatures.Human;
 
-public class Car extends Device {
-
+public abstract class Car extends Device {
+    static final Double DEFAULT_ELECTRIC_AMOUNT = 0.0;
+    static final Double DEFAULT_DIESEL_AMOUNT = 0.0;
+    static final Double DEFAULT_LPG_AMOUNT = 0.0;
+    public Double fuel;
 
     public Car(String brand, String model, Integer yearOfproduction) {
         super(brand, model, yearOfproduction);
+
 
     }
 
@@ -35,4 +39,6 @@ public class Car extends Device {
             throw new Exception("Not enough money");
         }
     }
+
+    public abstract void refuel();
 }
