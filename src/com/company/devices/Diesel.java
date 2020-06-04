@@ -1,8 +1,8 @@
 package com.company.devices;
 
 public class Diesel extends Car {
-    public Diesel(String brand, String model, Integer yearOfproduction) {
-        super(brand, model, yearOfproduction);
+    public Diesel(String brand, String model, Integer yearOfproduction, Double price) {
+        super(brand, model, yearOfproduction, price);
     }
 
     @Override
@@ -17,4 +17,6 @@ public class Diesel extends Car {
                         "\nSmoke everything behind. like snoop dogg");
 
     }
+
+
 }

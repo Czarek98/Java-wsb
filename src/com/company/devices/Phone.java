@@ -11,8 +11,8 @@ public class Phone extends Device {
     static final String DEFAULT_PROTOCOL = "https";
     static final Integer DEFAULT_NAME_OF_VERSION = 1;
 
-    public Phone(String brand, String model, Integer yearOfproduction) {
-        super(brand, model, yearOfproduction);
+    public Phone(String brand, String model, Integer yearOfproduction, Double price) {
+        super(brand, model, yearOfproduction, price);
 
     }
 
@@ -66,4 +66,5 @@ public class Phone extends Device {
     }
 
 }
+
 
