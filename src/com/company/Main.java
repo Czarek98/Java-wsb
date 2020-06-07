@@ -51,9 +51,9 @@ public class Main {
         brat.lastname = "Brat";
         me.phone = new Phone("xiaomi", "jakies", 2020, 0.1);
 
-        me.setCar(alfa, 0);
-        me.setCar(alfa1, 1);
-        me.setCar(alfa2, 2);
+        me.setCar(alfa);
+        me.setCar(alfa1);
+        me.setCar(alfa2);
 
 
         //Farmin
@@ -118,6 +118,9 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        alfa2.ifAsoldB(me, brat);
+        System.out.println(alfa2.numberOfTransactions());
     }
 
 }

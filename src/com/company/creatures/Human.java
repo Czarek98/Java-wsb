@@ -4,22 +4,22 @@ import com.company.devices.Car;
 import com.company.devices.Phone;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.*;
 
 public class Human extends Animal {
     public Phone phone;
     public String firstname;
     public String lastname;
     public Pet pet;
-    private static Integer DEFAULT_GARAGE_SIZE = 2;
+    private static final Integer DEFAULT_GARAGE_SIZE = 2;
     private Double cash = 200.0;
-    public Car[] garage;
+    public Set<Car> cars;
 
 
     public Human(Integer garageSize) {
 
         super("homo sapiens");
-        this.garage = new Car[garageSize];
+        this.cars = new HashSet<Car>();
     }
 
 
@@ -27,7 +27,7 @@ public class Human extends Animal {
     private Double rise_salary = 200.0;
 
     public String toString() {
-        return this.species + this.firstname + " " + this.lastname + ", " + this.pet + ", " + this.garage;
+        return this.species + this.firstname + " " + this.lastname + ", " + this.pet + ", " + this.cars;
     }
 
     public Double getCash() {
@@ -76,16 +76,20 @@ public class Human extends Animal {
 
     public Car getCar(Integer placesForCars) {
 
-        return garage[placesForCars];
+        Car[] vechicle = new Car[cars.size()];
+        cars.toArray(vechicle);
+        return vechicle[placesForCars];
+
     }
 
-    public Car[] getGarage() {
-        return this.garage;
+    public Collection<Car> thisCars() {
+        return this.cars;
     }
 
-    public void setCar(Car car, Integer placesForCars) {
+    public void setCar(Car car) {
 
-        this.garage[placesForCars] = car;
+        this.cars.add(car);
+        car.owners.add(this);
     }
 
     @Override
@@ -96,47 +100,35 @@ public class Human extends Animal {
 
     public double valueOfCars() {
         Double sum = 0.0;
-        for (Car car : garage) {
-            if (car != null) {
-                sum += car.price;
-            }
-        }
+        Iterator<Car> i = this.cars.iterator();
         return sum;
     }
 
     public boolean hasCar(Car newCar) {
-        for (Car car : garage) {
-            if (car == newCar) {
-                return true;
-            }
-        }
-        return false;
+        return this.cars.contains(newCar);
     }
 
     public boolean hasFreeSpace() {
-        for (int i = 0; i < this.garage.length; i++) {
-            if (this.garage[i] == null) {
-                return true;
-            }
-        }
-        return false;
+
+        return true;
     }
 
 
     public void removeCar(Car car) {
-        for (int i = 0; i < this.garage.length; i++) {
-            if (this.garage[i] == car) {
-                this.garage[i] = null;
-            }
+        this.cars.remove(car);
+    }
+
+    public void addCar(Car car) {
+        if (this.hasFreeSpace()) {
+            this.cars.add(car);
+            car.owners.add(this);
+        } else {
+            System.out.println("You have no space in garage");
         }
     }
 
-    public void addCar(Car newCar) {
-        for (int i = 0; i < this.garage.length; i++) {
-            if (this.garage[i] == null) {
-                this.garage[i] = newCar;
-            }
-        }
+    public boolean owner(Car car) {
+        return car.owners.get(car.owners.size() - 1) == car.owners.get(car.owners.size() - 1);
     }
 
 }
