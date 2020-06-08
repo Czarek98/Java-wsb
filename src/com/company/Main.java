@@ -45,12 +45,10 @@ public class Main {
         me.firstname = "Cezary";
         me.lastname = "Bohdanowicz";
         me.pet = dog;
-        Phone xiaomiNajlebrze = new Phone("xiaomi", "jakies", 2020, 0.1);
+        Phone xiaomiNajlebrze = new Phone("xiaomi", "jakies", 2020, 0.1, me);
         Human brat = new Human(2);
         brat.firstname = "Moj";
         brat.lastname = "Brat";
-        me.phone = new Phone("xiaomi", "jakies", 2020, 0.1);
-
         me.setCar(alfa);
         me.setCar(alfa1);
         me.setCar(alfa2);
@@ -113,14 +111,43 @@ public class Main {
 //        }
 
 
-        try {
-            alfa2.Sell(me, brat, 199.0);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            alfa2.Sell(me, brat, 199.0);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//        alfa2.ifAsoldB(me, brat);
+//        System.out.println(alfa2.numberOfTransactions());
 
-        alfa2.ifAsoldB(me, brat);
-        System.out.println(alfa2.numberOfTransactions());
+        Aplications twarzoksiazka = new Aplications("twarzoksiazka", 1.0, 0.0);
+        Aplications bimber = new Aplications("bimber", 1.0, 0.0);
+        Aplications mario = new Aplications("mario w lewa strone", 1.0, 5.0);
+        Aplications gta = new Aplications("gta sosnowiec", 1.0, 1.0);
+        Aplications gadugadu = new Aplications("gadu gadu", 1.0, 0.0);
+
+
+        xiaomiNajlebrze.installAnApp(bimber);
+        xiaomiNajlebrze.installAnApp(mario);
+        xiaomiNajlebrze.installAnApp(gta);
+        xiaomiNajlebrze.installAnApp(twarzoksiazka);
+        xiaomiNajlebrze.installAnApp(gadugadu);
+
+
+        xiaomiNajlebrze.sortAppsByLetters();
+        System.out.println("------------------------------");
+        xiaomiNajlebrze.sortAppsByPrice();
+        System.out.println("------------------------------");
+
+        try {
+            xiaomiNajlebrze.allFreeApps();
+        } catch (Exception e) {
+            System.out.println(e);
+
+        }
+        System.out.println("------------------------------");
+        System.out.println("Price of all apps: " + xiaomiNajlebrze.sumUpAppsPrice());
+
     }
 
 }
